@@ -1,6 +1,6 @@
 # Learn more about me
 
-![Visit my GitHub profile](https://img.shields.io/badge/Visit_my_GitHub_profile-181717?logo=github&logoColor=white)
+[![Visit my GitHub profile](https://img.shields.io/badge/Visit_my_GitHub_profile-181717?logo=github&logoColor=white)](https://github.com/theFreeman96)
 
 ## Follow Me
 
