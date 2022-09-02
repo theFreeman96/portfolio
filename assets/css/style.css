@@ -226,6 +226,23 @@ article.active {
   border-radius: 3px;
 }
 
+.has-scrollbar::-webkit-scrollbar {
+  width: 5px; /* for vertical scrollbar */
+  height: 5px; /* for horizontal scrollbar */
+}
+
+.has-scrollbar::-webkit-scrollbar-track {
+  background: var(--onyx);
+  border-radius: 5px;
+}
+
+.has-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--azure);
+  border-radius: 5px;
+}
+
+.has-scrollbar::-webkit-scrollbar-button { width: 20px; }
+
 .content-card {
   position: relative;
   background: var(--border-gradient-onyx);
@@ -233,7 +250,6 @@ article.active {
   padding-top: 45px;
   border-radius: 14px;
   box-shadow: var(--shadow-2);
-  cursor: pointer;
   z-index: 1;
 }
 
@@ -507,6 +523,42 @@ main {
 }
 
 
+/** SKILLS **/
+
+.skills-title { margin-bottom: 20px; }
+
+.skills-list { padding: 20px; }
+
+
+.skills-item:not(:last-child) { margin-bottom: 15px; }
+
+.skill .title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.skill .title-wrapper data {
+  color: var(--light-gray);
+  font-size: var(--fs-7);
+  font-weight: var(--fw-300);
+}
+
+.skill-progress-bg {
+  background: var(--jet);
+  width: 100%;
+  height: 8px;
+  border-radius: 10px;
+}
+
+.skill-progress-fill {
+  background: var(--decoration-gradient);
+  height: 100%;
+  border-radius: inherit;
+}
+
+
 /*-----------------------------------*\
   #RESUME
 \*-----------------------------------*/
@@ -574,40 +626,61 @@ main {
 }
 
 
-/** SKILLS **/
+/** CERTIFICATES **/
 
-.skills-title { margin-bottom: 20px; }
+ .certificates { margin-bottom: 30px; }
 
-.skills-list { padding: 20px; }
+ .certificates-title { margin-bottom: 20px; }
+ 
+ .certificates-list {
+   display: flex;
+   justify-content: flex-start;
+   align-items: flex-start;
+   gap: 15px;
+   margin: 0 -15px;
+   padding: 25px 15px;
+   padding-bottom: 35px;
+   overflow-x: auto;
+   scroll-behavior: smooth;
+   overscroll-behavior-inline: contain;
+   scroll-snap-type: inline mandatory;
+ }
+ 
+ .certificates-item {
+   min-width: 100%;
+   scroll-snap-align: center;
+ }
+ 
+ .certificates-avatar-box {
+   position: absolute;
+   top: 0;
+   left: 0;
+   transform: translate(15px, -25px);
+   background: var(--bg-avatar-gradient-onyx);
+   border-radius: 14px;
+   box-shadow: var(--shadow-1);
+ }
+ 
+ /*.certificates-item-title { margin-bottom: 7px; }*/
 
-
-.skills-item:not(:last-child) { margin-bottom: 15px; }
-
-.skill .title-wrapper {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  margin-bottom: 8px;
-}
-
-.skill .title-wrapper data {
-  color: var(--light-gray);
-  font-size: var(--fs-7);
-  font-weight: var(--fw-300);
-}
-
-.skill-progress-bg {
-  background: var(--jet);
-  width: 100%;
-  height: 8px;
-  border-radius: 10px;
-}
-
-.skill-progress-fill {
-  background: var(--decoration-gradient);
-  height: 100%;
-  border-radius: inherit;
-}
+ .certificates-item span {
+    margin-top: 7px;
+   color: var(--darker-azure);
+   font-weight: var(--fw-400);
+   line-height: 1.6;
+ }
+ 
+ .certificates-text {
+   color: var(--light-gray);
+   font-size: var(--fs-6);
+   font-weight: var(--fw-300);
+   line-height: 1.6;
+   display: -webkit-box;
+   line-clamp: 4;
+   -webkit-line-clamp: 4;
+   -webkit-box-orient: vertical;
+   overflow: hidden;
+ }
 
 
 /*-----------------------------------*\
@@ -917,6 +990,10 @@ main {
 
   .service-content-box { text-align: left; }
 
+  /** SKILLS **/
+  
+  .skills-item:not(:last-child) { margin-bottom: 25px; }
+
 
   /** #RESUME **/
 
@@ -930,7 +1007,39 @@ main {
     left: -43px;
   }
 
-  .skills-item:not(:last-child) { margin-bottom: 25px; }
+
+  /** CERTIFICATES **/
+
+  .certificates-title { margin-bottom: 25px; }
+
+  .certificates-list {
+    gap: 30px;
+    margin: 0 -30px;
+    padding: 30px;
+    padding-bottom: 35px;
+  }
+
+  .content-card {
+    padding: 30px;
+    padding-top: 25px;
+  }
+
+  .certificates-avatar-box {
+    transform: translate(30px, -30px);
+    border-radius: 20px;
+  }
+
+  .certificates-avatar-box img { width: 80px; }
+
+  .certificates-item-title {
+    /*margin-bottom: 10px;*/
+    margin-left: 95px;
+  }
+
+  .certificates-text {
+    line-clamp: 2;
+    -webkit-line-clamp: 2;
+  }
 
 
   /** #PORTFOLIO **/
@@ -949,6 +1058,8 @@ main {
   /** #REUSED STYLE **/
 
   .sidebar, article { width: 700px; }
+
+  .has-scrollbar::-webkit-scrollbar-button { width: 100px; }
 
   .link { --fs-8: 15px; }
 
@@ -1062,6 +1173,12 @@ main {
     gap: 20px 25px;
   }
 
+  /** #RESUME **/
+
+  /** CERTIFICATES **/
+
+  .certificates-item { min-width: calc(50% - 15px); }
+
 
   /** #PORTFOLIO **/
 
@@ -1075,6 +1192,24 @@ main {
 \*-----------------------------------*/
 
 @media (min-width: 1250px) {
+  
+  /** RESET */
+
+ body::-webkit-scrollbar { width: 20px; }
+
+ body::-webkit-scrollbar-track { background: var(--smoky-black); }
+
+ body::-webkit-scrollbar-thumb {
+   border: 5px solid var(--smoky-black);
+   background: hsla(0, 0%, 100%, 0.1);
+   border-radius: 20px;
+   box-shadow: inset 1px 1px 0 hsla(0, 0%, 100%, 0.11),
+               inset -1px -1px 0 hsla(0, 0%, 100%, 0.11);
+ }
+
+ body::-webkit-scrollbar-thumb:hover { background: hsla(0, 0%, 100%, 0.15); }
+
+ body::-webkit-scrollbar-button { height: 60px; }
   
   /** #REUSED STYLE **/
 
