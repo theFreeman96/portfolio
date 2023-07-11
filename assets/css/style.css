@@ -527,6 +527,36 @@ main {
 
 .skills-title { margin-bottom: 20px; }
 
+.skill.content-card {
+  margin-bottom: 305px;
+}
+
+.accordion {
+  color: var(--white-2);
+  cursor: pointer;
+  width: 100%;
+  transition: 0.4s;
+}
+
+.accordion:after {
+  content: '\003E';
+  transform: rotate(90deg);
+  transition: 0.2s linear;
+  float: right;
+}
+
+.accordion.active:after {
+  content: "\003E";
+  transform: rotate(-90deg);
+  transition: 0.2s linear;
+}
+
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+}
+
 .skills-list { padding: 20px; }
 
 
